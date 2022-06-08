@@ -23,6 +23,11 @@ for(var i in data){
     dest_wrapper.innerHTML += d_item;
 }
 
+var destination_tiles = document.getElementsByClassName('dest-item');
+for (var i = 0 ; i < destination_tiles.length; i++) {
+    destination_tiles[i].addEventListener("click", handleTile, false);
+}
+
 var favourite_btn = document.getElementsByClassName('item-fav-btn');
 for (var i = 0 ; i < favourite_btn.length; i++) {
     favourite_btn[i].addEventListener("click", handleFavourites, false);
@@ -112,13 +117,10 @@ function favouriteView(){
     }
 }
 
-var destination_tiles = document.getElementsByClassName('dest-item');
-for (var i = 0 ; i < destination_tiles.length; i++) {
-    destination_tiles[i].addEventListener("click", handleTile, false);
-}
-
 function handleTile(e){
     var dest_item = e.target.closest('.dest-item');
     var destination = dest_item.getAttribute('data-dest');
-    route(destination);
+    if(e.target.parentNode.parentNode != e.target.closest('.item-fav-btn')){
+        route(destination);
+    }
 }
