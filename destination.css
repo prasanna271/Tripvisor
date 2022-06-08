@@ -304,6 +304,79 @@ body > .content-wrapper > .content {
   cursor: pointer;
 }
 
+.book-vacation {
+  margin-top: 16px;
+  margin-left: 30px;
+  display: none;
+  margin-bottom: 50px;
+}
+
+.book-vacation > .subheading {
+  margin-bottom: 30px;
+  margin-left: -30px;
+}
+
+.details-inp-item {
+}
+
+.details-inp-item > .title {
+  font-size: 20px;
+}
+
+.details-inp-item > .content {
+  margin-top: 16px;
+  border: none;
+  outline: none;
+  background-color: #f3f3f3d8;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 20px;
+  font-size: 18px;
+  border-bottom: #dbdbdb solid 4px;
+  width: 250px;
+  font-family: "Lato";
+  color: hsla(0, 0%, 0%, 0.8);
+}
+
+.details-inp-item > .desc {
+  width: 290px;
+  font-size: 16px;
+  color: #0000004d;
+  text-align: end;
+  margin-bottom: 20px;
+}
+
+.input-horizon-val {
+  display: flex;
+  flex-direction: row;
+}
+
+.input-horizon-val > .details-inp-item {
+  margin-right: 16px;
+  justify-content: center;
+}
+
+#cvv-inp > .cvv-sz {
+  width: 70px;
+}
+
+#cvv-inp > .cvv-dsz {
+  width: 110px;
+}
+
+#pay-btn {
+  margin-top: 50px;
+  padding: 16px;
+  font-weight: 600;
+  width: fit-content;
+  border-radius: 12px;
+  background-color: aquamarine;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1000px) {
   #dest-view-img {
     width: 350px;

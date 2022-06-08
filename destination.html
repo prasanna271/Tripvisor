@@ -61,6 +61,51 @@
                             </div>
                             <p id="book-btn">BOOK NOW</p>
                         </div>
+                        <div class="book-vacation">
+                            <p class="subheading">Book Vacation</p>
+                            <div id="email-inp" class="details-inp-item">
+                                <p class="title">Email</p>
+                                <input class="content" type="email" />
+                                <p class="desc">Enter your email</p>
+                            </div>
+                            <div id="phone-inp" class="details-inp-item">
+                                <p class="title">Phone</p>
+                                <input class="content" type="tel" />
+                                <p class="desc">Enter your phone</p>
+                            </div>
+                            <div id="date-inp" class="details-inp-item">
+                                <p class="title">Date</p>
+                                <input class="content" type="date" />
+                                <p class="desc">Select the date</p>
+                            </div>
+                            <div class="input-horizon-val">
+                                <div id="card-inp" class="details-inp-item">
+                                    <p class="title">Card Number</p>
+                                    <input class="content" type="number" onkeypress="checkDigit(event)"/>
+                                    <p class="desc">Enter the card number</p>
+                                </div>
+                                <div id="cvv-inp" class="details-inp-item">
+                                    <p class="title">CVV</p>
+                                    <input class="content cvv-sz" type="password" pattern="[0-9]*" inputmode="numeric"/>
+                                    <p class="desc cvv-dsz">Enter cvv</p>
+                                </div>
+                            </div>
+                            <div id="name-inp" class="details-inp-item">
+                                <p class="title">Name</p>
+                                <input class="content" type="text" />
+                                <p class="desc">Enter the name(<sup>*</sup>according to gov proof)</p>
+                            </div>
+                            <div id="quantity-inp" class="details-inp-item">
+                                <p class="title">Quantity</p>
+                                <input class="content" type="number" onchange="quantityListener()" onkeyup="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();"/>
+                                <p class="desc">Enter the quantity</p>
+                            </div>
+                            <div class="price-format">
+                                <p class="p-subheading">Only</p>
+                                <p id="price-buy-fnl" class="price">1,00,000<sup>*</sup></p>
+                            </div>
+                            <p id="pay-btn">PAY</p>
+                        </div>
                     </div>
                 </div>
             </div>

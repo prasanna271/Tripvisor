@@ -37,12 +37,23 @@ function initData(dest){
             }
             exploreView.innerHTML = explore_x;
 
+            var dest_img = document.getElementById('dest-view-img');
+            dest_img.src = item['image'];
+
             var priceView = document.getElementById('price-ft');
             var price = item['price'].toLocaleString('en-US', {style: 'currency',currency: 'INR',})+"<sup>*</sup>"; 
             priceView.innerHTML = price;
 
-            var dest_img = document.getElementById('dest-view-img');
-            dest_img.src = item['image'];
+            priceBookfinal = document.getElementById('price-buy-fnl');
+            priceBookfinal.innerHTML = price;
+
+            emailEdit = document.getElementById("email-inp");
+            nameEdit = document.getElementById("name-inp");
+            phoneEdit = document.getElementById("phone-inp");
+            dateEdit = document.getElementById("date-inp");
+            cardEdit = document.getElementById("card-inp");
+            cvvEdit = document.getElementById("cvv-inp");
+            quantityEdit = document.getElementById("quantity-inp");
             
         }
     }
@@ -50,4 +61,146 @@ function initData(dest){
     if(!isDestAvailable){
         document.getElementById('ctnt').innerHTML = "";
     }
+}
+
+var priceBookfinal;
+var emailEdit, nameEdit, phoneEdit, dateEdit, cardEdit, cvvEdit, quantityEdit;
+
+var book_btn = document.getElementById("book-btn");
+var book_init = book_btn.addEventListener("click",initBooking);
+
+function initBooking(){
+    book_btn.style.display = "none";
+    document.getElementsByClassName("price-format")[0].style.display = "none";
+    document.getElementsByClassName("book-vacation")[0].style.display = "block";
+}
+
+var pay_btn = document.getElementById("pay-btn");
+pay_btn.addEventListener("click",processPayment);
+
+function processPayment(){
+    if(validateEmail() && validatePhone() && validateDate() && validateCardNumber() && validateCVV() && validateName() && validateQuantity()){
+        console.log("processing payment");
+    }
+}
+
+function validateEmail(){
+    var email = emailEdit.querySelector(".content").value;
+    console.log(email);
+    if(String(email).toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+        emailEdit.querySelector(".content").style.borderBottom = "aquamarine solid 4px";
+        return true;
+    }
+    else{
+        emailEdit.querySelector(".content").style.borderBottom = "#ff4c4c solid 4px";
+        return false;
+    }
+}
+
+function validatePhone(){
+    var phone = phoneEdit.querySelector(".content").value;
+    if(String(phone).toLowerCase().match(/^[1-9][0-9]{9}$/)){
+        phoneEdit.querySelector(".content").style.borderBottom = "aquamarine solid 4px";
+        return true;
+    }
+    else{
+        phoneEdit.querySelector(".content").style.borderBottom = "#ff4c4c solid 4px";
+        return false;
+    }
+}
+
+function validateDate(){
+    var date = dateEdit.querySelector(".content").value;
+    var arr_date = date.split("-");
+    if(arr_date.length==3){
+        var d = new Date(arr_date[0],arr_date[1],arr_date[2]);
+        var today = new Date();
+        if(d.getTime() >= today.getTime()){
+            dateEdit.querySelector(".content").style.borderBottom = "aquamarine solid 4px";
+            return true;
+        }
+        else{
+            dateEdit.querySelector(".content").style.borderBottom = "#ff4c4c solid 4px";
+            return false;
+        }
+    }
+    else{
+        dateEdit.querySelector(".content").style.borderBottom = "#ff4c4c solid 4px";
+        return false;
+    }
+}
+
+function validateCardNumber(){
+    var cardno = cardEdit.querySelector(".content").value;
+    if(String(cardno).toLowerCase().match(/^[0-9]{9,16}$/)){
+        cardEdit.querySelector(".content").style.borderBottom = "aquamarine solid 4px";
+        return true;
+    }
+    else{
+        cardEdit.querySelector(".content").style.borderBottom = "#ff4c4c solid 4px";
+        return false;
+    }
+}
+
+function validateCVV(){
+    var cvv = cvvEdit.querySelector(".content").value;
+    console.log(cvv);
+    if(String(cvv).toLowerCase().match(/^[0-9]{3}$/)){
+        cvvEdit.querySelector(".content").style.borderBottom = "aquamarine solid 4px";
+        return true;
+    }
+    else{
+        cvvEdit.querySelector(".content").style.borderBottom = "#ff4c4c solid 4px";
+        return false;
+    }
+}
+
+function validateName(){
+    var name = nameEdit.querySelector(".content").value;
+    console.log(name);
+    if(String(name).toLowerCase().match(/^[a-zA-Z]+$/)){
+        nameEdit.querySelector(".content").style.borderBottom = "aquamarine solid 4px";
+        return true;
+    }
+    else{
+        nameEdit.querySelector(".content").style.borderBottom = "#ff4c4c solid 4px";
+        return false;
+    }
+}
+
+function validateQuantity(){
+    var quantity = quantityEdit.querySelector(".content").value;
+    console.log(quantity);
+    if(String(quantity).toLowerCase().match(/^[0-9]+$/)){
+        quantityEdit.querySelector(".content").style.borderBottom = "aquamarine solid 4px";
+        return true;
+    }
+    else{
+        quantityEdit.querySelector(".content").style.borderBottom = "#ff4c4c solid 4px";
+        return false;
+    }
+}
+
+function quantityListener(event){
+    var quantity = quantityEdit.querySelector(".content").value;
+    if(String(quantity).toLowerCase().match(/^[0-9]+$/)){
+        for(var i=0;i<data.length;i++){
+            var item = data[i];
+            if(item["destination"].toLowerCase()==p.toLowerCase()){
+                var price = (item['price']*parseInt(quantity)).toLocaleString('en-US', {style: 'currency',currency: 'INR',})+"<sup>*</sup>"; 
+                priceBookfinal.innerHTML = price;
+            }
+        }
+    }
+}
+
+
+function checkDigit(event) {
+    // var code = (event.which) ? event.which : event.keyCode;
+
+    // if ((code < 48 || code > 57) && (code > 31)) {
+    //     return false;
+    // }
+
+    return true;
 }
