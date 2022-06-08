@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Destination</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="destination.css"/>
+    </head>
+    <body>
+        <header>
+            <div id="logo-wrapper">
+                <img class="logo-img" src="assets/logo.png" />
+                <p class="title">Tripvisor</p>
+            </div>
+            <div class="search-fnc">
+                <div class="search-bar-wrapper">
+                    <div id="filter" onclick="handleFilter()">
+                        <p class="name">Place</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#9e9e9e" id="Outline" viewBox="0 0 24 24" width="24" height="24"><path d="M18.71,8.21a1,1,0,0,0-1.42,0l-4.58,4.58a1,1,0,0,1-1.42,0L6.71,8.21a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41l4.59,4.59a3,3,0,0,0,4.24,0l4.59-4.59A1,1,0,0,0,18.71,8.21Z"/></svg>
+                    </div>
+                    <div class="filter-category">
+                        <p class="item">Place</p>
+                        <p class="item">Explore</p>
+                        <p class="item">Price Range</p>
+                    </div>
+                    <input id="search-bar" placeholder="Search Destination" onchange="inputTextListener()" onkeyup="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();"/>
+                </div>
+                <div id="search-results">
+                    <div class="res-item">
+                        <p class="title">Singapore</p>
+                        <p class="desc">25,000</p>
+                    </div>
+                </div>
+            </div>
+            <svg id="home-btn" xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 0 24 24" width="36px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z"/></svg>
+        </header>
+        <div class="content-wrapper">
+            <div id="ctnt" class="content">
+                <p id="dest-title">SINGAPORE</p>
+                <div id="disp-content">
+                    <div class="left-c">
+                        <div class="dest-img-w">
+                            <img id="dest-view-img" src="assets/singapore.jpeg" />
+                        </div>
+                    </div>
+                    <div class="right-c">
+                        <div class="about-dest">
+                            <p id="desc-itm" class="description">Best described as a microcosm of modern Asia, Singapore is a melting pot of culture and history, and an extravaganza of culinary delights. Officially known as the Republic of Singapore, it is both a city and a country located in Southeast Asia.</p>
+                            <p class="subheading">Explore</p>
+                            <div id="explore-itm" class="explore">
+                                <p class="explore-item">Trekking</p>
+                                <p class="explore-item">Restaurants</p>
+                                <p class="explore-item">Monuments</p>
+                                <p class="explore-item">World Wonders</p>
+                            </div>
+                            <div class="price-format">
+                                <p class="p-subheading">Only</p>
+                                <p id="price-ft" class="price">1,00,000<sup>*</sup></p>
+                            </div>
+                            <p id="book-btn">BOOK NOW</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="destination.js"></script> 
+        <script type="text/javascript" src="search.js"></script>  
+    </body>
+</html>
