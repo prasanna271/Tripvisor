@@ -2,7 +2,7 @@
 Hey ;)
 
 View all exotic vacation destinations.
-<img src="https://drive.google.com/uc?export=view&id=1Zgr-qTcgyxFmp3N72ACyqzvBJ2cLCB5q" width="200px">
+<img src="https://drive.google.com/uc?export=view&id=1Zgr-qTcgyxFmp3N72ACyqzvBJ2cLCB5q?raw=true" width="200px">
 ![alt Home](https://drive.google.com/uc?export=view&id=1Zgr-qTcgyxFmp3N72ACyqzvBJ2cLCB5q)
 Add places to your favourites!
 ![alt Favorites](https://drive.google.com/uc?export=view&id=1nRu95kjJn7urC-3vuG9pp1B2PHLszxM3)
